@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "node web3-patch.js"
   },
   "private": true,
   "dependencies": {
@@ -18,8 +19,19 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@walletconnect/web3-provider": "^1.6.6",
+    "assert": "^2.0.0",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "patch-package": "^6.4.7",
     "rxjs": "~6.6.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
     "tslib": "^2.3.0",
+    "util": "^0.12.4",
+    "web3": "^1.6.0",
+    "web3modal": "^1.9.4",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
