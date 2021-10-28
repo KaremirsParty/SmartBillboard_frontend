@@ -1,0 +1,33 @@
+<p>Metamask status: {{status}}</p>
+<p>Account: {{account}}</p>
+<p>Balance: {{balance}} ether</p>
+
+<button (click)="Connect()">Connect with Metamask</button>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<form [formGroup]="dtoForm" (ngSubmit)="onSubmitDto()">
+
+    <label for="a">A</label>
+    <br />
+    <input type="number" name="a" id="a" [formControl]="a">
+    <br />
+    <label for="b">B</label>
+    <br />
+    <input type="number" name="b" id="b" [formControl]="b">
+    <br />
+    <label for="c">C</label>
+    <br />
+    <input type="number" name="c" id="c" [formControl]="c">
+    <br />
+    <br />
+    <button type="submit">Click</button>
+</form>
+<br />
+<br />
+<button (click)="First()">First</button>
+<br />
+<br />
