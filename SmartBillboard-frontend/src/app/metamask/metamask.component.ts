@@ -9,6 +9,9 @@ import { EthService } from './eth-service';
   styleUrls: ['./metamask.component.css']
 })
 export class MetamaskComponent implements OnInit {
+  public status: string = "";
+  public account: string = "";
+  public balance: string = "0";
 
   a = new FormControl();
   b = new FormControl();
@@ -19,11 +22,9 @@ export class MetamaskComponent implements OnInit {
     c: this.c
   });
 
-  constructor(
-    private builder: FormBuilder,
-    private ethService: EthService) { 
-
-    }
+  constructor(private builder: FormBuilder, private ethService: EthService) {
+    this.UpdateMetamaskStatus();
+  }
 
   ngOnInit(): void {
   }
@@ -49,8 +50,23 @@ export class MetamaskComponent implements OnInit {
     // }
   }
 
-  Second(): void {
-    console.log("Second");
-    this.ethService.connectAccount();
+  async Connect(): Promise<void> {
+    if (this.ethService.isConnected) {
+      return;
+    }
+    await this.ethService.connectAccount();
+
+    await this.UpdateMetamaskStatus();
+  }
+
+  private async UpdateMetamaskStatus() {
+    if (this.ethService.isConnected) {
+      this.status = "connected";
+    } else {
+      this.status = "not initialized";
+    }
+
+    this.account = this.ethService.account;
+    this.balance = await this.ethService.getBalance();
   }
 }

@@ -1,4 +1,14 @@
-<p>metamask works!</p>
+<p>Metamask status: {{status}}</p>
+<p>Account: {{account}}</p>
+<p>Balance: {{balance}} ether</p>
+
+<button (click)="Connect()">Connect with Metamask</button>
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <form [formGroup]="dtoForm" (ngSubmit)="onSubmitDto()">
 
     <label for="a">A</label>
@@ -21,4 +31,3 @@
 <button (click)="First()">First</button>
 <br />
 <br />
-<button (click)="Second()">Second</button>
