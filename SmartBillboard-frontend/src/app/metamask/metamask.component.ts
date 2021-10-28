@@ -57,6 +57,8 @@ export class MetamaskComponent implements OnInit {
     await this.ethService.connectAccount();
 
     await this.UpdateMetamaskStatus();
+
+    await this.ethService.getX();
   }
 
   private async UpdateMetamaskStatus() {
