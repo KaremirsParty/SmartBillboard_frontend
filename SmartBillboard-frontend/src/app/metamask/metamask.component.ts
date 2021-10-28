@@ -51,5 +51,6 @@ export class MetamaskComponent implements OnInit {
 
   Second(): void {
     console.log("Second");
+    this.ethService.connectAccount();
   }
 }
