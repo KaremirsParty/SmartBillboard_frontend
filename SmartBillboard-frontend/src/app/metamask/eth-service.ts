@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { array } from "prop-types";
 import { Subject } from "rxjs";
+import file from './abi/AdsBoard.json';
 import Web3 from "web3";
 declare let window: any;
 
@@ -25,6 +26,13 @@ export class EthService {
 
       this.isConnected = this.ethereum.selectedAddress !== null;
       this.account = this.ethereum.selectedAddress;
+
+      var parsed= JSON.parse(JSON.stringify(file));
+      var abi = parsed.abi;
+      
+
+      var contract = new this.web3js.eth.Contract(abi, "address");
+      console.log(contract);
     }
 
   async connectAccount() {
